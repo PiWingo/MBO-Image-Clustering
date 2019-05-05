@@ -6,8 +6,8 @@
 #include <ctime>
 using namespace std;
 
-const double up = 30.00;
-const double down = -30.00;
+const double up = 256.00;
+const double down = 0.00;
 
 class Agent
 {

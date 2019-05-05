@@ -3,6 +3,63 @@
 #include "ggwFunc.h"
 #include <cmath>
 
+using namespace cv;
+//using namespace std;
+
+Mat histograma(Mat& imagem) {
+	Mat hist;
+	const float range1[] = { 0,256 };
+	const float* range[] = { range1 };
+	int histSize = 256;
+	int channels[] = { 0 };
+	calcHist(&imagem, 1, channels, Mat(), hist, 1, &histSize, range);
+	for (int s = 0; s < 256; s++) {
+		hist.at<float>(0, s) /= imagem.rows * imagem.cols;
+	}
+	return hist;
+}
+
+float entropiaMax(int estados) {
+	float s = 0;
+	for (int i = 0; i < estados; i++) {
+		s += (1. / estados) * log(1. / estados);
+	}
+	return -s;
+}
+
+float entropia(Mat hist, int lim1, int lim2) {
+	//normaliza
+	float s = 0;
+	for (int i = lim1; i < lim2; i++) {
+		s += hist.at<float>(0, i);
+	}
+	if (s > 0)
+		for (int i = lim1; i < lim2; i++) {
+			hist.at<float>(0, i) /= s;
+		}
+
+	s = 0;
+	for (int i = lim1; i < lim2; i++) {
+		if (hist.at<float>(0, i) > 0)
+			s += hist.at<float>(0, i) * log(hist.at<float>(0, i));
+	}
+	return -s;
+}
+
+float avaliacao(Mat & histograma, vector<int> cortes) {
+	sort(cortes.begin(), cortes.end());
+
+	float s = entropia(histograma, 0, cortes[0]);
+
+	for (int i = 1; i < cortes.size(); i++) {
+		s += entropia(histograma, cortes[i - 1], cortes[i]);
+	}
+
+	s += entropia(histograma, cortes.back(), 256);
+
+	return s;
+}
+
 MBO_Object::MBO_Object(void)
 {
 
@@ -11,6 +68,9 @@ MBO_Object::MBO_Object(void)
 MBO_Object::MBO_Object(int popsize, int dimension, int maxt)
 	:Popsize(popsize), dim(dimension), max_t(maxt)
 {
+
+	
+
 	period = 1.2;
 	partition = 5.0 / 12;
 	BAR = partition;
@@ -67,10 +127,14 @@ void MBO_Object::MBO()
 	streambuf *coutbackup;
 	coutbackup = cout.rdbuf(fout.rdbuf());  //用 rdbuf() 重新定向
 
-	CostFunction(ag);
+	Mat img = imread("Resources\\lenna.png", IMREAD_GRAYSCALE);
+	Mat hist = histograma(img);
+
+	CostFunction(ag, hist);
 	PopSort(ag);
 	bestAgent = ag[0];
 	total_fit = ag[0].fit;
+
 
 	// Begin the optimization loop
 	for (int t = 0; t < max_t; ++t)
@@ -80,6 +144,8 @@ void MBO_Object::MBO()
 		{
 			tempElitism.push_back(ag.at(ik));
 		}
+
+		
 
 		//////////////////    Divide the whole population into two subpopulations % % % %%%
 		//	 Divide the whole population into Population1(Land1) and Population2(Land2)
@@ -147,7 +213,7 @@ void MBO_Object::MBO()
 		}
 
 		FeasibleFunction(ag);
-		CostFunction(ag);
+		CostFunction(ag,hist);
 		PopSort(ag);
 		bestAgent = ag[0];
 
@@ -209,19 +275,29 @@ double MBO_Object::get_fit(vector<double> &pos)
 
 	value1 = -20 * exp(-0.2* sqrt(sum1 / pos.size()));
 	value2 = -exp(sum2 / pos.size());
-	value3 = 20 + exp(1);
+	value3 = 20 + exp(1); 
 
 	value = value1 + value2 + value3;
 
 	return value;
 }
 
-//Compute the cost of each member in Population
-void MBO_Object::CostFunction(vector<Agent>& ag)
+double MBO_Object::getEntropy(vector<double>& pos, Mat& image)
+{
+	int corteValor = (int)pos.at(0);
+	vector<int> corte;
+	corte.push_back(corteValor);
+	double value = (double)avaliacao(image, corte);
+
+	return value;
+}
+
+
+void MBO_Object::CostFunction(vector<Agent>& ag, Mat& image)
 {
 	for (int i = 0; i < Popsize; ++i)
 	{
-		ag.at(i).fit = get_fit(ag.at(i).pos);
+		ag.at(i).fit = getEntropy(ag.at(i).pos, image);
 	}
 }
 

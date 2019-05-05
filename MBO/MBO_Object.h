@@ -14,8 +14,10 @@
 #include <memory>
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h> 
+#include <time.h>
+#include <opencv2/opencv.hpp>
 using namespace std;
+using namespace cv;
 
 class MBO_Object
 {
@@ -40,12 +42,12 @@ public:
 	double total_fit;
 	void MBO();
 	double get_fit(vector<double> &pos);
-	void CostFunction(vector<Agent>& ag);
+	double getEntropy(vector<double>& pos, Mat& image);
+	void CostFunction(vector<Agent>& ag, Mat& image);
 	void PopSort(vector<Agent>& ag);
 	void FeasibleFunction(vector<Agent>& ag);
 	vector<double> LevyFlight(int StepSzie, int dim);
 	double sum(vector<double> & vec1);
-	void input();
 	void output();
 	MBO_Object(void);
 	MBO_Object(int num, int dimension, int maxt);

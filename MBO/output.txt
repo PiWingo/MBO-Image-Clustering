@@ -2,9 +2,9 @@
 
 The final results are: 
 the parameter is : 
-popsize=50, dimension=3, maximum generation= 50
-the result is: total_fit ---0.0211369
+popsize=256, dimension=1, maximum generation= 50
+the result is: total_fit ---0.715479
 the solution is :
-0.00408352 -0.00593819 -0.00466722 
+37.8053 
 CLOCKS_PER_SEC  1000
-the time is:  0.03
+the time is:  0.104

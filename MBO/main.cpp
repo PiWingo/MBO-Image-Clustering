@@ -11,60 +11,6 @@
 using namespace std;
 using namespace cv;
 
-Mat histograma(Mat& imagem) {
-	Mat hist;
-	const float range1[] = { 0,256 };
-	const float* range[] = { range1 };
-	int histSize = 256;
-	int channels[] = { 0 };
-	calcHist(&imagem, 1, channels, Mat(), hist, 1, &histSize, range);
-	for (int s = 0; s < 256; s++) {
-		hist.at<float>(0, s) /= imagem.rows * imagem.cols;
-	}
-	return hist;
-}
-
-float entropiaMax(int estados) {
-	float s = 0;
-	for (int i = 0; i < estados; i++) {
-		s += (1. / estados) * log(1. / estados);
-	}
-	return -s;
-}
-
-float entropia(Mat hist, int lim1, int lim2) {
-	//normaliza
-	float s = 0;
-	for (int i = lim1; i < lim2; i++) {
-		s += hist.at<float>(0, i);
-	}
-	if (s > 0)
-		for (int i = lim1; i < lim2; i++) {
-			hist.at<float>(0, i) /= s;
-		}
-
-	s = 0;
-	for (int i = lim1; i < lim2; i++) {
-		if (hist.at<float>(0, i) > 0)
-			s += hist.at<float>(0, i) * log(hist.at<float>(0, i));
-	}
-	return -s;
-}
-
-float avaliacao(Mat & histograma, vector<int> cortes) {
-	sort(cortes.begin(), cortes.end());
-
-	float s = entropia(histograma, 0, cortes[0]);
-
-	for (int i = 1; i < cortes.size(); i++) {
-		s += entropia(histograma, cortes[i - 1], cortes[i]);
-	}
-
-	s += entropia(histograma, cortes.back(), 256);
-
-	return s;
-}
-
 void imhist(string const& name, Mat1b const& image) {
 	// Set histogram bins count
 	int bins = 256;
@@ -100,48 +46,12 @@ void imhist(string const& name, Mat1b const& image) {
 
 int main()
 {
-
-	Mat image;
-	image = imread("Resources\\pedagio.png", IMREAD_GRAYSCALE);
-
-	if (image.empty()) {
-
-	}
-	else {
-		Mat img;
-		resize(image, img, Size(1024, 768), 0, 0, INTER_CUBIC);
-		imshow("img hist", img);// Show our image inside it.
-		imhist("image1 hist", img);
-	}
-
-	float melhor = 0;
-	int itera = 0;
-
-	
-	clock_t start2 = clock();
-	for (int i = 0; i < 256; i++) {
-
-		vector<int> cortesHistograma = { i }; //a solução é descrita por esse vetor;
-		Mat hist = histograma(image);
-
-		float r = avaliacao(hist, cortesHistograma);
-		//cout << "avaliacao: " << r << endl;
-		if (melhor < r) {
-			melhor = r;
-			itera = i;
-		}
-	}
-	clock_t end2 = clock();
-	cout << "melhor avaliacao: " << melhor << endl;
-	cout << "valor da faixa: " << itera << endl;
-	cout << "the time is:  " << (double)(end2 - start2) / CLOCKS_PER_SEC << endl;
-
 	srand((unsigned)time(NULL));
 
 	int popsize = 0, maxt = 0, dim;
 	// cin>>popsize>>dim>>n>>maxt>>cr>>f;
-	popsize = 50;
-	dim = 3;
+	popsize = 256;
+	dim = 1;
 	maxt = 50;
 
 	MBO_Object mbo(popsize, dim, maxt);
