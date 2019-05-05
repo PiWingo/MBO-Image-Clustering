@@ -1,2 +1,12 @@
-﻿  opencv.cpp
-c:\users\user\desktop\programas\cc\c++\visual studio\opencv_firstimage\opencv_firstimage\opencv.cpp(1): fatal error C1083: Não é possível abrir arquivo incluir: 'opencv2/opencv.hpp': No such file or directory
+﻿  Agent.cpp
+  ggwFunc.cpp
+  main.cpp
+C:\Users\pietr\Desktop\mbo-vs17-master\MBO\main.cpp(9): fatal error C1083: Não é possível abrir arquivo incluir: 'opencv2/opencv.hpp': No such file or directory
+  MBO_Object.cpp
+C:\Users\pietr\Desktop\mbo-vs17-master\MBO\MBO_Object.cpp(18): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+C:\Users\pietr\Desktop\mbo-vs17-master\MBO\MBO_Object.cpp(21): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+C:\Users\pietr\Desktop\mbo-vs17-master\MBO\MBO_Object.cpp(109): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+C:\Users\pietr\Desktop\mbo-vs17-master\MBO\MBO_Object.cpp(114): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+C:\Users\pietr\Desktop\mbo-vs17-master\MBO\MBO_Object.cpp(127): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+C:\Users\pietr\Desktop\mbo-vs17-master\MBO\MBO_Object.cpp(138): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+  Gerando Código...

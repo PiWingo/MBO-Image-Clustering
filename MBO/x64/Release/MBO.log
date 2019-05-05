@@ -1,7 +1,8 @@
-﻿  opencv.cpp
+﻿  main.cpp
+C:\Users\pietr\Desktop\mbo-vs17-master\MBO\main.cpp(30): warning C4244: '+=': conversão de 'double' para 'float', possível perda de dados
   Gerando código
-  0 of 684 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  1 of 797 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finalizada a geração de código
-  MBO.vcxproj -> C:\Users\User\Desktop\Programas\CC\C++\Visual Studio\MBO\x64\Release\MBO.exe
+  MBO.vcxproj -> C:\Users\pietr\Desktop\mbo-vs17-master\x64\Release\MBO.exe
