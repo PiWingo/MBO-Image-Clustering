@@ -1,0 +1,2 @@
+﻿  opencv.cpp
+c:\users\user\desktop\programas\cc\c++\visual studio\opencv_firstimage\opencv_firstimage\opencv.cpp(1): fatal error C1083: Não é possível abrir arquivo incluir: 'opencv2/opencv.hpp': No such file or directory

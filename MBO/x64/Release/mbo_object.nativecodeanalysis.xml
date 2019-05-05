@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::Popsize' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::dim' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::period' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::partition' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::BAR' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::keep' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::numButterfly1' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::numButterfly2' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::maxStepSize' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::max_t' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::MaxFEs' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::total_fit' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>11</LINE>
+      <COLUMN>12</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'MBO_Object::total_fit' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>MBO_Object::{ctor}</FUNCTION>
+    <DECORATED>??0MBO_Object@@QEAA@HHH@Z</DECORATED>
+    <FUNCLINE>11</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>98</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>MBO_Object::MBO</FUNCTION>
+    <DECORATED>?MBO@MBO_Object@@QEAAXXZ</DECORATED>
+    <FUNCLINE>52</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>109</LINE>
+      <COLUMN>44</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>MBO_Object::MBO</FUNCTION>
+    <DECORATED>?MBO@MBO_Object@@QEAAXXZ</DECORATED>
+    <FUNCLINE>52</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>114</LINE>
+      <COLUMN>44</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>MBO_Object::MBO</FUNCTION>
+    <DECORATED>?MBO@MBO_Object@@QEAAXXZ</DECORATED>
+    <FUNCLINE>52</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>127</LINE>
+      <COLUMN>32</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>MBO_Object::MBO</FUNCTION>
+    <DECORATED>?MBO@MBO_Object@@QEAAXXZ</DECORATED>
+    <FUNCLINE>52</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>138</LINE>
+      <COLUMN>44</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>MBO_Object::MBO</FUNCTION>
+    <DECORATED>?MBO@MBO_Object@@QEAAXXZ</DECORATED>
+    <FUNCLINE>52</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>146</LINE>
+      <COLUMN>20</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>MBO_Object::MBO</FUNCTION>
+    <DECORATED>?MBO@MBO_Object@@QEAAXXZ</DECORATED>
+    <FUNCLINE>52</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>163</LINE>
+      <COLUMN>22</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>MBO_Object::MBO</FUNCTION>
+    <DECORATED>?MBO@MBO_Object@@QEAAXXZ</DECORATED>
+    <FUNCLINE>52</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>mbo_object.cpp</FILENAME>
+      <LINE>163</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>MBO_Object::MBO</FUNCTION>
+    <DECORATED>?MBO@MBO_Object@@QEAAXXZ</DECORATED>
+    <FUNCLINE>52</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>agent.h</FILENAME>
+      <LINE>24</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Agent::dim' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Agent::{ctor}</FUNCTION>
+    <DECORATED>??0Agent@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>24</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\user\desktop\programas\cc\c++\visual studio\mbo\mbo\</FILEPATH>
+      <FILENAME>agent.h</FILENAME>
+      <LINE>24</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Agent::fit' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Agent::{ctor}</FUNCTION>
+    <DECORATED>??0Agent@@QEAA@AEBV0@@Z</DECORATED>
+    <FUNCLINE>24</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

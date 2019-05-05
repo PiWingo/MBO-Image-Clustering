@@ -1,0 +1,12 @@
+﻿  Agent.cpp
+  ggwFunc.cpp
+  main.cpp
+  MBO_Object.cpp
+c:\users\user\source\repos\mbo\mbo\mbo_object.cpp(18): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+c:\users\user\source\repos\mbo\mbo\mbo_object.cpp(21): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+c:\users\user\source\repos\mbo\mbo\mbo_object.cpp(109): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\user\source\repos\mbo\mbo\mbo_object.cpp(114): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\user\source\repos\mbo\mbo\mbo_object.cpp(127): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\user\source\repos\mbo\mbo\mbo_object.cpp(138): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+  Gerando Código...
+  MBO.vcxproj -> C:\Users\User\source\repos\MBO\Debug\MBO.exe
