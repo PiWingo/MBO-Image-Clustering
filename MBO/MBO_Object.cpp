@@ -71,8 +71,8 @@ MBO_Object::MBO_Object(int popsize, int dimension, int maxt)
 
 	
 
-	period = 1.2;
-	partition = 5.0 / 12;
+	period = 1.2; //com 1 e 0.5 embaixo n convergiu
+	partition = 5.0 / 12; //isso aqui muda muito como converge
 	BAR = partition;
 	keep = 2;
 	numButterfly1 = ceil(partition*Popsize);  // NP1 in paper
@@ -316,13 +316,13 @@ void MBO_Object::FeasibleFunction(vector<Agent>& ag)
 
 //Sort the population members from best to worst
 void MBO_Object::PopSort(vector<Agent>& ag)
-{
+{	
 	vector<double> cost(Popsize, 0.0);
 	for (int i = 0; i < Popsize; ++i)
 	{
 		cost.at(i) = ag.at(i).fit;
-	}
-
+	} 
+	static int generation = 0;
 	multimap<double, int> mm;
 	for (unsigned int i = 0; i < cost.size(); ++i)
 		mm.insert(make_pair(cost[i], i));
@@ -335,6 +335,25 @@ void MBO_Object::PopSort(vector<Agent>& ag)
 		ag[i] = agent[(cp++)->second];
 	}
 
+	ofstream fout;  //output file
+	fout.open("generation.txt", std::ios_base::app);  //??????
+
+	if (!fout.is_open())
+	{
+		cout << "Error opening file"; exit(1);
+	}
+	streambuf* coutbackup;
+	coutbackup = cout.rdbuf(fout.rdbuf());  //?? rdbuf() ???¶???
+
+	for (int i = 0; i < ag.size(); i++) {
+		cout << "ag fit: " << ag[i].fit;
+		cout << " ag pos: " << ag[i].pos[1] <<endl;
+	}
+	cout << "-------fim da geracao: " << generation << endl;
+	fout.close();
+
+	cout.rdbuf(coutbackup);  //??????????????
+	generation++;
 }
 
 double MBO_Object::sum(vector<double> & vec1)
