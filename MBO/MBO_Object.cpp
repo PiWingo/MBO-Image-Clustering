@@ -2,6 +2,7 @@
 #include "MBO_Object.h" 
 #include "ggwFunc.h"
 #include <cmath>
+#include <opencv2/highgui.hpp>
 
 using namespace cv;
 //using namespace std;
@@ -46,17 +47,18 @@ float entropia(Mat hist, int lim1, int lim2) {
 	return -s;
 }
 
-float avaliacao(Mat & histograma, vector<int> cortes) {
+float avaliacao(const Mat & histograma, vector<int> cortes) {
 	sort(cortes.begin(), cortes.end());
 
 	float s = entropia(histograma, 0, cortes[0]);
 
 	for (int i = 1; i < cortes.size(); i++) {
 		s += entropia(histograma, cortes[i - 1], cortes[i]);
+		
 	}
 
 	s += entropia(histograma, cortes.back(), 256);
-
+	//cerr << s << "  " << cortes[0] << endl;
 	return s;
 }
 
@@ -129,6 +131,7 @@ void MBO_Object::MBO()
 
 	Mat img = imread("Resources\\lenna.png", IMREAD_GRAYSCALE);
 	Mat hist = histograma(img);
+
 
 	CostFunction(ag, hist);
 	PopSort(ag);
@@ -282,13 +285,14 @@ double MBO_Object::get_fit(vector<double> &pos)
 	return value;
 }
 
-double MBO_Object::getEntropy(double pos, Mat& image)
+double MBO_Object::getEntropy(double pos,const Mat& image)
 {
 	int corteValor = (int)pos;
 	vector<int> corte;
 	corte.push_back(corteValor);
+	//namedwindow("imagem");
 	double value = (double)avaliacao(image, corte);
-
+	cerr << value << " pos: " << pos << endl;
 	return value;
 }
 
@@ -297,7 +301,7 @@ void MBO_Object::CostFunction(vector<Agent>& ag, Mat& image)
 {
 	for (int i = 0; i < Popsize; ++i)
 	{
-		ag.at(i).fit = getEntropy(ag.at(i).pos[0], image);
+		ag.at(i).fit = -getEntropy(ag.at(i).pos[0], image);
 	}
 }
 
@@ -308,8 +312,8 @@ void MBO_Object::FeasibleFunction(vector<Agent>& ag)
 	{
 		for (int j = 0; j < dim; ++j)
 		{
-			ag.at(i).pos[j] = max(ag[i].pos[j], down);
-			ag.at(i).pos[j] = min(ag[i].pos[j], up);
+			ag.at(i).pos[j] = max(ag[i].pos[j], down); //a > b ? a : b
+			ag.at(i).pos[j] = min(ag[i].pos[j], up); // a < b ? a : b
 		}
 	}
 }
@@ -330,7 +334,7 @@ void MBO_Object::PopSort(vector<Agent>& ag)
 	vector<Agent>  agent(ag);
 
 	auto cp = mm.begin();
-	for (int i = Popsize - 1; i >= 0; i--)
+	for (int i = 0 ; i < ag.size(); i++)
 	{
 		ag[i] = agent[(cp++)->second];
 	}
