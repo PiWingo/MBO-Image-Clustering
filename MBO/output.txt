@@ -3,9 +3,9 @@
 The final results are: 
 the parameter is : 
 popsize=50, dimension=1, maximum generation= 150
-the result is: total_fit ---1.53362
+the result is: total_fit ---1.35621
 the solution is :
 0 
 CLOCKS_PER_SEC  1000
-the time is:  2.308
+the time is:  2.361
 imprimindo

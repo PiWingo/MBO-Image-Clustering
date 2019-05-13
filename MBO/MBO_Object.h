@@ -42,7 +42,7 @@ public:
 	double total_fit;
 	void MBO();
 	double get_fit(vector<double> &pos);
-	double getEntropy(vector<double>& pos, Mat& image);
+	double getEntropy(double pos, Mat& image);
 	void CostFunction(vector<Agent>& ag, Mat& image);
 	void PopSort(vector<Agent>& ag);
 	void FeasibleFunction(vector<Agent>& ag);

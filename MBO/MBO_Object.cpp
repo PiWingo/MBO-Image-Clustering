@@ -282,9 +282,9 @@ double MBO_Object::get_fit(vector<double> &pos)
 	return value;
 }
 
-double MBO_Object::getEntropy(vector<double>& pos, Mat& image)
+double MBO_Object::getEntropy(double pos, Mat& image)
 {
-	int corteValor = (int)pos.at(0);
+	int corteValor = (int)pos;
 	vector<int> corte;
 	corte.push_back(corteValor);
 	double value = (double)avaliacao(image, corte);
@@ -297,7 +297,7 @@ void MBO_Object::CostFunction(vector<Agent>& ag, Mat& image)
 {
 	for (int i = 0; i < Popsize; ++i)
 	{
-		ag.at(i).fit = getEntropy(ag.at(i).pos, image);
+		ag.at(i).fit = getEntropy(ag.at(i).pos[0], image);
 	}
 }
 
@@ -330,7 +330,7 @@ void MBO_Object::PopSort(vector<Agent>& ag)
 	vector<Agent>  agent(ag);
 
 	auto cp = mm.begin();
-	for (int i = 0; i < Popsize; ++i)
+	for (int i = Popsize - 1; i >= 0; i--)
 	{
 		ag[i] = agent[(cp++)->second];
 	}
@@ -347,7 +347,7 @@ void MBO_Object::PopSort(vector<Agent>& ag)
 
 	for (int i = 0; i < ag.size(); i++) {
 		cout << "ag fit: " << ag[i].fit;
-		cout << " ag pos: " << ag[i].pos[1] <<endl;
+		cout << " ag pos: " << ag[i].pos[0] <<endl;
 	}
 	cout << "-------fim da geracao: " << generation << endl;
 	fout.close();
