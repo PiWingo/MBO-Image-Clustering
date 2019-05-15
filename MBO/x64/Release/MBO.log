@@ -1,16 +1,6 @@
-﻿  Agent.cpp
-  MBO_Object.cpp
-c:\users\franc\desktop\mbo-image-clustering-master\mbo\mbo_object.cpp(26): warning C4244: '+=': conversão de 'double' para 'float', possível perda de dados
-c:\users\franc\desktop\mbo-image-clustering-master\mbo\mbo_object.cpp(80): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
-c:\users\franc\desktop\mbo-image-clustering-master\mbo\mbo_object.cpp(83): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
-c:\users\franc\desktop\mbo-image-clustering-master\mbo\mbo_object.cpp(178): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\franc\desktop\mbo-image-clustering-master\mbo\mbo_object.cpp(183): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\franc\desktop\mbo-image-clustering-master\mbo\mbo_object.cpp(196): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\franc\desktop\mbo-image-clustering-master\mbo\mbo_object.cpp(207): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-  main.cpp
-  Gerando código
-  4 of 808 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
+﻿  Gerando código
+  0 of 764 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    8 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finalizada a geração de código
-  MBO.vcxproj -> C:\Users\franc\Desktop\MBO-Image-Clustering-master\x64\Release\MBO.exe
+  MBO.vcxproj -> C:\Users\pietr\Desktop\Github\MBO-Image-Clustering\x64\Release\MBO.exe

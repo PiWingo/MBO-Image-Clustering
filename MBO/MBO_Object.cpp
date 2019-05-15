@@ -17,6 +17,7 @@ Mat histograma(Mat& imagem) {
 	for (int s = 0; s < 256; s++) {
 		hist.at<float>(0, s) /= imagem.rows * imagem.cols;
 	}
+
 	return hist;
 }
 
@@ -70,8 +71,6 @@ MBO_Object::MBO_Object(void)
 MBO_Object::MBO_Object(int popsize, int dimension, int maxt)
 	:Popsize(popsize), dim(dimension), max_t(maxt)
 {
-
-	
 
 	period = 1.2; //com 1 e 0.5 embaixo n convergiu
 	partition = 5.0 / 12; //isso aqui muda muito como converge
@@ -130,9 +129,49 @@ void MBO_Object::MBO()
 	coutbackup = cout.rdbuf(fout.rdbuf());  //用 rdbuf() 重新定向
 
 	Mat img = imread("Resources\\lenna.png", IMREAD_GRAYSCALE);
-	Mat hist = histograma(img);
+	const Mat z = histograma(img);
 
+	//ofstream w;  //output file
+	//w.open("bruteforce.txt", ios::out);  //??????
 
+	//if (!w.is_open())
+	//{
+	//	cout << "Error opening file"; exit(1);
+	//}
+	//streambuf* q;
+	//q = cout.rdbuf(w.rdbuf());  //?? rdbuf() ???¶???
+	//float best = 0;
+	//int bestcut = 0;
+	//for (int i = 0; i < 256; i++) {
+	//	const Mat z = histograma(img);
+	//	vector<int> cut{ i };
+	//	float resp = avaliacao(z, cut);
+	//	cout << "corte em " << i << " resultou no valor " << resp <<endl;
+	//	if (resp > best) {
+	//		best = resp;
+	//		bestcut = i;
+	//	}
+	//}
+	//cout << "melhor corte em " << bestcut << " com o valor de " << best << endl;
+	//cout << "------------------------------  1 " << endl;
+
+	//for (int i = 0; i < 256; i++) {
+	//	vector<int> cut{ i };
+	//	cout << "corte em " << i << " resultou no valor " << avaliacao(z, cut) << endl;
+	//}
+
+	//cout << "------------------------------  2" << endl;
+
+	//for (int i = 0; i < 256; i++) {
+	//	vector<int> cut{ i };
+	//	cout << "corte em " << i << " resultou no valor " << avaliacao(z, cut) << endl;
+	//}
+
+	//w.close();
+
+	//cout.rdbuf(q);  //??????????????
+
+	const Mat hist = histograma(img);
 	CostFunction(ag, hist);
 	PopSort(ag);
 	bestAgent = ag[0];
@@ -142,13 +181,13 @@ void MBO_Object::MBO()
 	// Begin the optimization loop
 	for (int t = 0; t < max_t; ++t)
 	{
+
+
 		// Elitism strategy
 		for (int ik = 0; ik < keep; ++ik)
 		{
 			tempElitism.push_back(ag.at(ik));
 		}
-
-		
 
 		//////////////////    Divide the whole population into two subpopulations % % % %%%
 		//	 Divide the whole population into Population1(Land1) and Population2(Land2)
@@ -224,7 +263,7 @@ void MBO_Object::MBO()
 		{
 			total_fit = ag[0].fit;
 		}
-		std::cout << total_fit << "   ";
+		//std::cout << total_fit << "   ";
 
 		// Replace the worst with the previous generation's elites.
 		for (int ik = 0; ik < keep; ++ik)
@@ -285,23 +324,24 @@ double MBO_Object::get_fit(vector<double> &pos)
 	return value;
 }
 
-double MBO_Object::getEntropy(double pos,const Mat& image)
+double MBO_Object::getEntropy(double pos,const Mat& hist)
 {
 	int corteValor = (int)pos;
 	vector<int> corte;
 	corte.push_back(corteValor);
-	//namedwindow("imagem");
-	double value = (double)avaliacao(image, corte);
-	cerr << value << " pos: " << pos << endl;
+	double value = (double)avaliacao(hist, corte);
+	//cerr << value << " pos: " << pos << endl;
 	return value;
 }
 
 
-void MBO_Object::CostFunction(vector<Agent>& ag, Mat& image)
+void MBO_Object::CostFunction(vector<Agent>& ag, const Mat& hist)
 {
+	Mat img = imread("Resources\\lenna.png", IMREAD_GRAYSCALE);
 	for (int i = 0; i < Popsize; ++i)
 	{
-		ag.at(i).fit = -getEntropy(ag.at(i).pos[0], image);
+		const Mat z = histograma(img);
+		ag.at(i).fit = -getEntropy(ag.at(i).pos[0], z);
 	}
 }
 

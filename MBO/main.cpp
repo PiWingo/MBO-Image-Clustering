@@ -52,7 +52,7 @@ int main()
 	// cin>>popsize>>dim>>n>>maxt>>cr>>f;
 	popsize = 50;
 	dim = 1;
-	maxt = 150;
+	maxt = 10;
 
 	MBO_Object mbo(popsize, dim, maxt);
 	clock_t start = clock();
@@ -74,14 +74,11 @@ int main()
 	cout << "CLOCKS_PER_SEC  " << CLOCKS_PER_SEC << endl;
 	cout << "the time is:  " << (double)(end - start) / CLOCKS_PER_SEC << endl;
 
-	cout << "imprimindo" << endl;
-
 	// Close the file
 	fout.close();
 
 	cout.rdbuf(coutbackup);  //??????????????
 
-	waitKey(0);
 	return 0;
 }
 
