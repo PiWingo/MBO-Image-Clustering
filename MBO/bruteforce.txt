@@ -128,7 +128,7 @@ corte em 126 resultou no valor 8.18638
 corte em 127 resultou no valor 8.19559
 corte em 128 resultou no valor 8.20404
 corte em 129 resultou no valor 8.21232
-corte em 130 resultou no valor 8.22023
+corte em 130 resultou no valor 8.22024
 corte em 131 resultou no valor 8.22789
 corte em 132 resultou no valor 8.23523
 corte em 133 resultou no valor 8.24198

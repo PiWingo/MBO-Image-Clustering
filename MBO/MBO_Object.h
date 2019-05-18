@@ -38,12 +38,13 @@ private:
 	double maxStepSize;
 	int max_t;
 	int MaxFEs;
+	vector<Agent> convergence;
 public:
 	double total_fit;
 	void MBO();
 	double get_fit(vector<double> &pos);
-	double getEntropy(double pos, const Mat& hist);
-	void CostFunction(vector<Agent>& ag, const Mat& hist);
+	double getEntropy(double pos, const Mat hist);
+	void CostFunction(vector<Agent>& ag, const Mat hist);
 	void PopSort(vector<Agent>& ag);
 	void FeasibleFunction(vector<Agent>& ag);
 	vector<double> LevyFlight(int StepSzie, int dim);

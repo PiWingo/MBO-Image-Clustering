@@ -14,9 +14,9 @@ Mat histograma(Mat& imagem) {
 	int histSize = 256;
 	int channels[] = { 0 };
 	calcHist(&imagem, 1, channels, Mat(), hist, 1, &histSize, range);
-	for (int s = 0; s < 256; s++) {
-		hist.at<float>(0, s) /= imagem.rows * imagem.cols;
-	}
+	//for (int s = 0; s < 256; s++) {
+	//	hist.at<float>(0, s) /= imagem.rows * imagem.cols;
+	//}
 
 	return hist;
 }
@@ -73,13 +73,14 @@ MBO_Object::MBO_Object(int popsize, int dimension, int maxt)
 {
 
 	period = 1.2; //com 1 e 0.5 embaixo n convergiu
-	partition = 5.0 / 12; //isso aqui muda muito como converge
+	partition = 5.0 / 12.0; //isso aqui muda muito como converge
 	BAR = partition;
 	keep = 2;
 	numButterfly1 = ceil(partition*Popsize);  // NP1 in paper
 	numButterfly2 = Popsize - numButterfly1; // NP2 in paper
-	maxStepSize = 1.0;
+	maxStepSize = 2.0;
 	MaxFEs = 1E4;
+	convergence.reserve(maxt);
 
 	ag.reserve(Popsize);
 	ag1.reserve(numButterfly1);
@@ -116,20 +117,20 @@ void MBO_Object::MBO()
 	Agent bestAgent;
 
 	// Write final results to output.txt
-	ofstream fout;  //输出文件
-	fout.open("output.txt", ios::out | ios::app);  //输出文件
+	//ofstream fout;  //输出文件
+	//fout.open("output.txt", ios::out | ios::app);  //输出文件
 
-	if (!fout.is_open())
-	{
-		cout << "Error opening file"; exit(1);
-	}
+	//if (!fout.is_open())
+	//{
+	//	cout << "Error opening file"; exit(1);
+	//}
 
 	// 重定向
-	streambuf *coutbackup;
-	coutbackup = cout.rdbuf(fout.rdbuf());  //用 rdbuf() 重新定向
+	//streambuf *coutbackup;
+	//coutbackup = cout.rdbuf(fout.rdbuf());  //用 rdbuf() 重新定向
 
 	Mat img = imread("Resources\\lenna.png", IMREAD_GRAYSCALE);
-	const Mat z = histograma(img);
+	//const Mat z = histograma(img);
 
 	//ofstream w;  //output file
 	//w.open("bruteforce.txt", ios::out);  //??????
@@ -176,6 +177,7 @@ void MBO_Object::MBO()
 	PopSort(ag);
 	bestAgent = ag[0];
 	total_fit = ag[0].fit;
+	convergence.push_back(bestAgent);
 
 
 	// Begin the optimization loop
@@ -247,11 +249,13 @@ void MBO_Object::MBO()
 					Land2[parnum2] = ag2[r4].pos[1];
 					if (random(0.0, 1.0) > BAR)
 					{
-						Land2[parnum2] = Land2[parnum2] + scale * (delataX[parnum2] - 0.5);
+						Land2[parnum2] = /*Land2[parnum2] + scale * (delataX[parnum2] - 0.5)*/ random(down, up);
+						
 					}
 				}
 			}
 			ag[numButterfly1 + k2].pos = Land2;
+			//cerr << "passou aqui " << Land2[0] << " " << numButterfly1 + k2<< endl;
 		}
 
 		FeasibleFunction(ag);
@@ -271,14 +275,14 @@ void MBO_Object::MBO()
 			ag.at(Popsize - ik - 1) = tempElitism.at(ik);
 		}
 		tempElitism.clear();
-
+		convergence.push_back(bestAgent);
 	}  // end for max_t
 
 
 	// Close the file
-	fout.close();
+	//fout.close();
 
-	cout.rdbuf(coutbackup);  //取消，恢复屏幕输出
+	//cout.rdbuf(coutbackup);  //取消，恢复屏幕输出
 }
 
 vector<double>  MBO_Object::LevyFlight(int StepSzie, int dim)
@@ -324,7 +328,7 @@ double MBO_Object::get_fit(vector<double> &pos)
 	return value;
 }
 
-double MBO_Object::getEntropy(double pos,const Mat& hist)
+double MBO_Object::getEntropy(double pos,const Mat hist)
 {
 	int corteValor = (int)pos;
 	vector<int> corte;
@@ -335,7 +339,7 @@ double MBO_Object::getEntropy(double pos,const Mat& hist)
 }
 
 
-void MBO_Object::CostFunction(vector<Agent>& ag, const Mat& hist)
+void MBO_Object::CostFunction(vector<Agent>& ag, const Mat hist)
 {
 	Mat img = imread("Resources\\lenna.png", IMREAD_GRAYSCALE);
 	for (int i = 0; i < Popsize; ++i)
@@ -379,24 +383,24 @@ void MBO_Object::PopSort(vector<Agent>& ag)
 		ag[i] = agent[(cp++)->second];
 	}
 
-	ofstream fout;  //output file
-	fout.open("generation.txt", std::ios_base::app);  //??????
+	//ofstream fout;  //output file
+	//fout.open("generation.txt", std::ios_base::app);  //??????
 
-	if (!fout.is_open())
-	{
-		cout << "Error opening file"; exit(1);
-	}
-	streambuf* coutbackup;
-	coutbackup = cout.rdbuf(fout.rdbuf());  //?? rdbuf() ???¶???
+	//if (!fout.is_open())
+	//{
+	//	cout << "error opening file"; exit(1);
+	//}
+	//streambuf* coutbackup;
+	//coutbackup = cout.rdbuf(fout.rdbuf());  //?? rdbuf() ???¶???
 
-	for (int i = 0; i < ag.size(); i++) {
-		cout << "ag fit: " << ag[i].fit;
-		cout << " ag pos: " << ag[i].pos[0] <<endl;
-	}
-	cout << "-------fim da geracao: " << generation << endl;
-	fout.close();
+	//for (int i = 0; i < ag.size(); i++) {
+	//	cout << "ag fit: " << ag[i].fit;
+	//	cout << " ag pos: " << ag[i].pos[0] <<endl;
+	//}
+	//cout << "-------fim da geracao: " << generation << endl;
+	//fout.close();
 
-	cout.rdbuf(coutbackup);  //??????????????
+	//cout.rdbuf(coutbackup);  //??????????????
 	generation++;
 }
 
@@ -444,5 +448,6 @@ void MBO_Object::output()
 	fout.close();
 
 	cout.rdbuf(coutbackup);  //取消，恢复屏幕输出
+
 }
 
